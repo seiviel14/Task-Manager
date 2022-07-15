@@ -45,7 +45,7 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-    'backend.task.taskConfig'
+    'task'
 ]
 
 THIRD_PARTY_APPS = [
@@ -70,12 +70,18 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
+REST_FRAMEWORK = {
+     'DEFAULT_RENDERER_CLASSES': (
+         'rest_framework.renderers.JSONRenderer',
+     )
+ }
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(Path(__file__).resolve().parent.parent.parent, 'frontend','build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,6 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(Path(__file__).resolve().parent.parent.parent, 'frontend', 'build', 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

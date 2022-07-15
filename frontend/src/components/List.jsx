@@ -12,6 +12,7 @@ function List(props){
             <h1 >Task: {props.title}</h1>
             <p>Description: {props.content}</p>
             <label>Status<input onChange={statusChange} type="checkbox" checked={props.status}/></label>
+            <br />
             <button onClick={handleClick}>Delete</button>
         </div>
     )

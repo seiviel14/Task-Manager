@@ -81,8 +81,10 @@ function Task() {
     return (
         <div className="">
             <form className="create-task">
-                <input onChange={handleChange} text={formTask.taskName} name="taskName" placeholder="" value={formTask.taskName} />
-                <textarea onChange={handleChange} name="description" placeholder="" value={formTask.description} />
+                <input onChange={handleChange} text={formTask.taskName} name="taskName" placeholder="Task" value={formTask.taskName} />
+                <br />
+                <textarea onChange={handleChange} name="description" placeholder="Description" value={formTask.description} />
+                <br />
                 <button onClick={createTask}>Create Task</button>
             </form>
                 {
